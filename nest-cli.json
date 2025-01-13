@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/krakend/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/krakend/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/krakend",
+  "projects": {
+    "krakend": {
+      "type": "application",
+      "root": "apps/krakend",
+      "entryFile": "main",
+      "sourceRoot": "apps/krakend/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/krakend/tsconfig.app.json"
+      }
+    },
+    "time": {
+      "type": "application",
+      "root": "apps/time",
+      "entryFile": "main",
+      "sourceRoot": "apps/time/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/time/tsconfig.app.json"
+      }
+    },
+    "users": {
+      "type": "application",
+      "root": "apps/users",
+      "entryFile": "main",
+      "sourceRoot": "apps/users/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/users/tsconfig.app.json"
+      }
+    }
+  }
+}

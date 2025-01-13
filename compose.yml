@@ -1,0 +1,33 @@
+services:
+  krakend:
+    image: devopsfaith/krakend
+    volumes:
+      - ./docker/krakend:/etc/krakend
+      - ./config/krakend.json:/etc/krakend/krakend.json
+    command: sh -c "krakend run -c krakend.json"
+    ports:
+      - 8080:8080
+    networks:
+      - fyoussef
+
+  time-app:
+    build: 
+      context: .
+      dockerfile: ./apps/time/Dockerfile
+    expose:
+      - 3000
+    networks:
+      - fyoussef
+
+  users-app:
+    build: 
+      context: .
+      dockerfile: ./apps/users/Dockerfile
+    expose:
+      - 3000
+    networks:
+      - fyoussef
+
+networks:
+  fyoussef:
+    external: true
